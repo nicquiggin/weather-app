@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Weather App</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather app</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/db1be9db44.js"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <div class="weather-app">
+        <div class="row">
+          <div class="col-7">
+            <form id="search-form">
+              <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search location" id="location-input" autocomplete="off" autofocus="on" />
+                <div class="input-group-append">
+                  <button class="btn btn-secondary" type="button">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+          <div class="col-5">
+            <ul class="todays-date">
+              <li id="day-and-date"></li>
+              <li id="time"></li>
+              <li><a href="#" id="select-celsius">°C</a> / <a href="#" id="select-farenheit">°F</a></li>
+            </ul>
+          </div>
+        </div>
+        <p id="current-location-button"><a href="#">Current Location</a></p>
+
+        <hr class="top" />
+
+        <h1 id="city-heading"></h1>
+
+        <div class="row">
+          <div class="col-3 today-weather-icon">
+            <i class="fas fa-sun"></i>
+          </div>
+          <div class="col-5 today-weather-basic">
+            <ul>
+              <li><span id="today-temp"></span>°C</li>
+              <li id="today-weather-description"></li>
+            </ul>
+          </div>
+          <div class="col-4 today-weather-conditions">
+            <ul>
+              <li>Feels Like: <span id="real-feel"></span>°C</li>
+              <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Wind: <span id="wind"></span>km/h</li>
+            </ul>
+          </div>
+        </div>
+
+        <hr class="bottom" />
+
+        <div class="five-day-forecast">
+          <div class="row days-of-week">
+            <div class="col">Monday</div>
+            <div class="col">Tuesday</div>
+            <div class="col">Wednesday</div>
+            <div class="col">Thursday</div>
+            <div class="col">Friday</div>
+          </div>
+
+          <div class="row weather-icon">
+            <div class="col">
+              <i class="fas fa-sun"></i>
+            </div>
+            <div class="col">
+              <i class="fas fa-cloud-sun"></i>
+            </div>
+            <div class="col">
+              <i class="fas fa-cloud-sun-rain"></i>
+            </div>
+            <div class="col">
+              <i class="fas fa-cloud"></i>
+            </div>
+            <div class="col">
+              <i class="fas fa-cloud-sun"></i>
+            </div>
+          </div>
+
+          <div class="row temperature">
+            <div class="col">21°C / 8°C</div>
+            <div class="col">18°C / 8°C</div>
+            <div class="col">17°C / 2°C</div>
+            <div class="col">18°C / 7°C</div>
+            <div class="col">19°C / 8°C</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>
