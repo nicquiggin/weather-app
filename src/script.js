@@ -58,15 +58,18 @@ function getCurrentLocation(event) {
 
 function displayWeatherConditions(response) {
   console.log(response.data);
-  celsiusTemperature = response.data.main.temp
-  document.querySelector("#today-temp").innerHTML = Math.round(celsiusTemperature);  
+  actualCelsiusTemperature = response.data.main.temp;
+  feelsLikeCelsiusTemperature = response.data.main.feels_like;
+  document.querySelector("#today-temp").innerHTML = Math.round(actualCelsiusTemperature); 
   document.querySelector("#city-heading").innerHTML = response.data.name;
   document.querySelector("#today-weather-description").innerHTML = response.data.weather[0].description;
-  document.querySelector("#real-feel").innerHTML = Math.round(response.data.main.feels_like);
+  document.querySelector("#real-feel").innerHTML = Math.round(feelsLikeCelsiusTemperature);
   document.querySelector("#humidity").innerHTML = Math.round(response.data.main.humidity);
   document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#today-weather-icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   document.querySelector("#today-weather-icon").setAttribute("alt", response.data.weather[0].description);
+  document.querySelector("#unit").innerHTML = "°C";
+  document.querySelector("#feels-like-unit").innerHTML = "°C";
 }
 
 function searchCity(city) {
@@ -85,21 +88,31 @@ function displayFarenheit(event) {
   event.preventDefault();
   farenheitLink.classList.add("active");
   celsiusLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#today-temp");
-  let unit = document.querySelector("#unit");
-  unit.innerHTML = "°F"
-  let farenheitTemperature = (celsiusTemperature * 9/5) + 32;
-  temperatureElement.innerHTML = Math.round(farenheitTemperature);
+  let actualTemperatureElement = document.querySelector("#today-temp");
+  let feelsLikeTemperatureElement = document.querySelector("#real-feel");
+  let actualTempUnit = document.querySelector("#unit");
+  actualTempUnit.innerHTML = "°F"
+  let feelsLikeTempUnit = document.querySelector("#feels-like-unit");
+  feelsLikeTempUnit.innerHTML = "°F"
+  let actualFarenheitTemperature = (actualCelsiusTemperature * 9/5) + 32;
+  let feelsLikeFarenheitTemperature = (feelsLikeCelsiusTemperature * 9/5) + 32;
+  actualTemperatureElement.innerHTML = Math.round(actualFarenheitTemperature);
+  feelsLikeTemperatureElement.innerHTML = Math.round(feelsLikeFarenheitTemperature);
+
 }
 
 function displayCelsius(event) {
   event.preventDefault();
   farenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
-    let unit = document.querySelector("#unit");
-  unit.innerHTML = "°C"
-  let temperatureElement = document.querySelector("#today-temp");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  let actualTempUnit = document.querySelector("#unit");
+  actualTempUnit.innerHTML = "°C"
+  let feelsLikeTempUnit = document.querySelector("#feels-like-unit");
+  feelsLikeTempUnit.innerHTML = "°C"
+  let actualTemperatureElement = document.querySelector("#today-temp");
+  actualTemperatureElement.innerHTML = Math.round(actualCelsiusTemperature);
+  let feelsLikeTemperatureElement = document.querySelector("#real-feel");
+  feelsLikeTemperatureElement.innerHTML = Math.round(feelsLikeCelsiusTemperature);
 }
 
 let now = new Date();
@@ -120,7 +133,9 @@ farenheitLink.addEventListener("click", displayFarenheit);
 let celsiusLink = document.querySelector("#select-celsius");
 celsiusLink.addEventListener("click", displayCelsius);
 
-let celsiusTemperature = null;
+let actualCelsiusTemperature = null;
+
+let feelsLikeCelsiusTemperature = null;
 
 searchCity("New York");
 
