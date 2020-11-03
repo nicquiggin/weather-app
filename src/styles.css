@@ -1,5 +1,6 @@
 body {
   background: rgba(255, 255, 255, 0.3);
+  color: #1c1f1d;
 }
 
 ul {
@@ -50,6 +51,16 @@ hr .bottom {
   margin: 0;
 }
 
+.active {
+  color: #1c1f1d;
+  font-weight: bold;
+}
+
+.active:hover {
+  text-decoration: none;
+  cursor: default;
+}
+
 .today-weather-basic {
   font-size: 28px;
   margin-top: 16px;
@@ -91,7 +102,7 @@ hr .bottom {
 #today-weather-icon {
   height: 120px;
   width: 120px;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
   position: relative;
   left: 30px;
   padding: 0;
