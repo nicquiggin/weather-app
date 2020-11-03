@@ -70,6 +70,8 @@ function displayWeatherConditions(response) {
   document.querySelector("#today-weather-icon").setAttribute("alt", response.data.weather[0].description);
   document.querySelector("#unit").innerHTML = "°C";
   document.querySelector("#feels-like-unit").innerHTML = "°C";
+  farenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
 }
 
 function searchCity(city) {
