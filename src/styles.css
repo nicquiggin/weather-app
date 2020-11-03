@@ -12,6 +12,7 @@ h1 {
   font-size: 42px;
   font-weight: 900;
   margin-left: 12px;
+  margin-top: 32px;
   text-transform: capitalize;
 }
 
@@ -19,9 +20,8 @@ hr {
   border-color: #e5e5e5;
 }
 
-hr.bottom {
+hr .bottom {
   margin-top: 0;
-  margin-bottom: 100px;
 }
 
 .weather-app {
@@ -91,6 +91,7 @@ hr.bottom {
 #today-weather-icon {
   height: 120px;
   width: 120px;
+  margin-bottom: 28px;
   position: relative;
   left: 30px;
   padding: 0;
