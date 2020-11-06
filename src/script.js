@@ -134,13 +134,13 @@ function displayFarenheit(event) {
   let actualTemperatureElement = document.querySelector("#today-temp");
   let feelsLikeTemperatureElement = document.querySelector("#real-feel");
   let actualTempUnit = document.querySelector("#unit");
-  actualTempUnit.innerHTML = "°F"
   let feelsLikeTempUnit = document.querySelector("#feels-like-unit");
-  feelsLikeTempUnit.innerHTML = "°F"
   let actualFarenheitTemperature = (actualCelsiusTemperature * 9/5) + 32;
   let feelsLikeFarenheitTemperature = (feelsLikeCelsiusTemperature * 9/5) + 32;
   actualTemperatureElement.innerHTML = Math.round(actualFarenheitTemperature);
   feelsLikeTemperatureElement.innerHTML = Math.round(feelsLikeFarenheitTemperature);
+  actualTempUnit.innerHTML = "°F"
+  feelsLikeTempUnit.innerHTML = "°F"
 
 }
 
@@ -149,13 +149,13 @@ function displayCelsius(event) {
   farenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
   let actualTempUnit = document.querySelector("#unit");
-  actualTempUnit.innerHTML = "°C"
   let feelsLikeTempUnit = document.querySelector("#feels-like-unit");
-  feelsLikeTempUnit.innerHTML = "°C"
   let actualTemperatureElement = document.querySelector("#today-temp");
-  actualTemperatureElement.innerHTML = Math.round(actualCelsiusTemperature);
   let feelsLikeTemperatureElement = document.querySelector("#real-feel");
   feelsLikeTemperatureElement.innerHTML = Math.round(feelsLikeCelsiusTemperature);
+  actualTemperatureElement.innerHTML = Math.round(actualCelsiusTemperature);
+  actualTempUnit.innerHTML = "°C";
+  feelsLikeTempUnit.innerHTML = "°C";
 }
 
 let now = new Date();
